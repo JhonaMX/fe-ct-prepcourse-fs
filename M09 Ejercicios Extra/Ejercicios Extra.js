@@ -6,6 +6,16 @@ function deObjetoAarray(objeto) {
    // Estos elementos debe ser cada par clave:valor del objeto recibido.
    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
    // Tu código:
+   let arregloP = [];
+ 
+   for (elemento in objeto) {
+      let arregloH = [];
+      arregloH.push(elemento); //ingresa clave 'D'
+      arregloH.push(objeto[elemento]); //ingresa valor  1
+      arregloP.push(arregloH); // ['D', 1]
+   }
+   return arregloP;
+  
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +24,14 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
+   let objeto = {};
+   let newArr = string.split('');// ['s', 't', 'r', 'i'...]
+   newArr.sort(); //ordena arrays alfabeticamente
+   for (letra of newArr) { //crea PROPIEDAD/KEY de Objero e itera sobre cada array (letra)
+      let valorCantidad = objeto[letra] || 0; // crea VALOR de KEY  
+      objeto[letra] = valorCantidad + 1; // accedio al KEY de objeto y crea VALOR de KEY
+   }
+   return objeto;
 }
 
 function capToFront(string) {
@@ -22,13 +40,30 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   let letMay = "";
+   let letMin = "";
+   for (i of string){
+      if (i === i.toUpperCase()) {
+         letMay += i;
+      } else { letMin += i}
+   }
+   return letMay + letMin;
 }
 
 function asAmirror(frase) {
    // Recibes una frase. Tu tarea es retornar un nuevo string en el que el orden de las palabras sea el mismo.
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
-   // Tu código:
+   // Tu código: [Coby] tiene hambre por las noches
+   let resultado = [];
+   let palabras = frase.split(" "); // fraseR Strin>>Array 
+   for (var i = 0; i < palabras.length; i++){
+      var palaRev = palabras[i].split("").reverse().join("");
+      resultado.push(palaRev);
+   }
+   return resultado.join(" ");
+
+
 }
 
 function capicua(numero) {
